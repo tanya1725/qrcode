@@ -15,8 +15,10 @@ export default function DynamicFoodQR() {
     try {
       const randomFood = foodItems[Math.floor(Math.random() * foodItems.length)];
       const url = await QRCode.toDataURL(randomFood, {
-        width: 300, // Smaller size
-        margin: 1,
+        width: 500, // Smaller size
+        height:500,
+       
+  
         color: {
           dark: '#000000',
           light: '#ffffff'
@@ -35,11 +37,11 @@ export default function DynamicFoodQR() {
   }, []);
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-sky-500">
+    <div className="flex items-center  min-h-screen bg-sky-500" style={{ backgroundColor: 'lightblue',height:'700px' }}>
       <div className="bg-white p-6 rounded-lg shadow-md flex flex-col items-center">
         <h2 className="text-xl font-semibold text-center mb-4">Mystery Snack QR Code</h2>
         {qrCode && (
-          <div className="bg-blue-200 p-4 rounded-md flex items-center justify-center">
+          <div className="bg-blue-200 p-4 rounded-md flex items-center justify-center"style={{ marginLeft: '500px' }}>
             <img
               src={qrCode}
               alt="QR Code for a mystery snack"
